@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 # Create your models here.
-class Diary(models.Model):
+class Entry(models.Model):
     class Mood(models.IntegerChoices):
         HAPPY=1
         SMILING=2
@@ -23,17 +23,15 @@ class Diary(models.Model):
         HYPNOTIZED=15
         ANGRY=16
         
-
     user = models.ForeignKey(User, related_name="diary_user", on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=255)
     date = models.DateTimeField(default = datetime.now)
     content = models.TextField()
     location = models.CharField(max_length=100, null=True, blank=True)
     mood = models.IntegerField(choices=Mood.choices)
-    background_img = models.ImageField(upload_to="entry/%Y/%m/%d")
-        
+
 
 class DiaryImages(models.Model):
-    diary = models.ForeignKey(Diary, on_delete=models.CASCADE)
+    entry = models.ForeignKey(Entry, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='images/%Y/%m/%d', blank=True, null=True)
 
