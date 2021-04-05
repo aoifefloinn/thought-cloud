@@ -9,3 +9,12 @@ def index(request):
           user info and diaries written (or it will redirect to the login page).',
     }
     return HttpResponse(template.render(context, request))
+
+def login(request):
+  pass
+
+def logout(request):
+  pass
+
+def signup(request):
+  pass
