@@ -131,6 +131,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
+# Authentication and Email
+# https://docs.djangoproject.com/en/3.1/topics/auth/default/
+
 AUTH_USER_MODEL='user.User'
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
