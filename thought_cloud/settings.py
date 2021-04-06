@@ -63,7 +63,7 @@ ROOT_URLCONF = 'thought_cloud.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'), os.path.join(BASE_DIR, 'templates', 'accounts')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -135,7 +135,7 @@ STATIC_URL = '/static/'
 # Authentication and Email
 # https://docs.djangoproject.com/en/3.1/topics/auth/default/
 
-AUTH_USER_MODEL='user.User'
+# AUTH_USER_MODEL='user.User'
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
@@ -149,12 +149,12 @@ AUTHENTICATION_BACKENDS  =  (
 
 SITE_ID  =  1
 
-ACCOUNT_EMAIL_REQUIRED  =  True 
-ACCOUNT_USERNAME_REQUIRED  =  True
-ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE  =  False 
-ACCOUNT_SESSION_REMEMBER  =  True 
-ACCOUNT_AUTHENTICATION_METHOD  =  "email"
-ACCOUNT_UNIQUE_EMAIL  =  True
+# ACCOUNT_EMAIL_REQUIRED  =  True 
+# ACCOUNT_USERNAME_REQUIRED  =  True
+# ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE  =  False 
+# ACCOUNT_SESSION_REMEMBER  =  True 
+# ACCOUNT_AUTHENTICATION_METHOD  =  "email"
+# ACCOUNT_UNIQUE_EMAIL  =  True
 
-LOGIN_REDIRECT_URL= 'index'
-ACCOUNT_LOGOUT_REDIRECT_URL = 'index'
+# LOGIN_REDIRECT_URL= 'account_login'
+#ACCOUNT_LOGOUT_REDIRECT_URL = 'diary:index'
