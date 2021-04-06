@@ -32,6 +32,6 @@ class Entry(models.Model):
 
 
 class DiaryImages(models.Model):
-    entry = models.ForeignKey(Entry, on_delete=models.CASCADE)
+    entry = models.ForeignKey(Entry, on_delete=models.CASCADE, blank=True, null=True)
     image = models.ImageField(upload_to='images/%Y/%m/%d', blank=True, null=True)
 
