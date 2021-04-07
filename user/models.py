@@ -87,6 +87,7 @@ class MyUser(AbstractBaseUser,  PermissionsMixin):
         null=True,
         blank=True,
         upload_to='avatar',
+        default='user\image\default.png'
     )
     theme = models.IntegerField(
         choices=Color.choices, 
