@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime
-
+from django.conf import settings
 
 # Create your models here.
 class Entry(models.Model):
@@ -22,8 +22,7 @@ class Entry(models.Model):
         SCARED=14
         HYPNOTIZED=15
         ANGRY=16
-        
-    user = models.ForeignKey(User, related_name="diary_user", on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="diary_user", on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=255)
     date = models.DateTimeField(default = datetime.now)
     content = models.TextField()

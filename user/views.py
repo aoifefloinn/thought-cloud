@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.template import loader
 from django.contrib import auth
 
+# from .forms import SignUpForm
 # def index(request):
 #     template = loader.get_template('user/dashboard.html')
 #     context = {
@@ -13,7 +14,6 @@ from django.contrib import auth
 def login_signup(request):
   context = {
     "page_description" : "This is the first page of a service that allows users to log in or sign up for membership."
-
   }
   return render(request, 'user/login_signup.html', context)
   
@@ -31,6 +31,15 @@ def logout(request):
   pass
 
 def signup(request):
+  if request.mothod=="POST":
+    form = SignUpForm(request.POST)
+    if form.is_valud():
+      form.save()
+      email = form.cleaned_data.get('email')
+      username = form.cleaned_data.get('username')
+      raw_password = form.cleaned_data.get('password')
+    user = User.objects.create_user(username=request.POST['email'], password=request.POST['password'])
+
   pass
 
 def setting(request):
